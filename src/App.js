@@ -6,7 +6,7 @@ import Cal1 from './component/Cal1';
 
 const menuItems = [
         { name: 'Home', path: '/' },
-        { name: 'Cal1', path: '/Cal1' }
+        { name: 'Task1', path: '/Cal1' }
     ];
 
 function App() {
@@ -14,9 +14,8 @@ function App() {
       <div className="App">
         <Header menu={menuItems} />
         <Routes>
-          {menuItems.map((item, index) => (
-            <Route key={index} path={item.path} element={<item.name />} />
-          ))}
+          <Route path="/" element={<Home />} />
+          <Route path="/Cal1" element={<Cal1 />} />
         </Routes>
       </div>
   );

@@ -1,12 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-const Home = () => {
+function Home() {
   return (
-    <section className="hero">
-      <h1>Welcome to State Management Tasks</h1>
-      <p>Learn React state management through practical examples.</p>
-    </section>
-  );
-};
+    <div>
+        
+    </div>
+  )
+}
 
-export default Home;
+export default Home
