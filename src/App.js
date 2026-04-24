@@ -1,5 +1,6 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import Header from './component/Header';
 import Home from './component/Home';
 import Cal1 from './component/Cal1';
@@ -23,6 +24,7 @@ function App() {
           <Route path="/Cal2" element={<Cal2 />} />
           <Route path="/Cal3" element={<Cal3 />} />
         </Routes>
+        <Analytics />
       </div>
   );
 }
