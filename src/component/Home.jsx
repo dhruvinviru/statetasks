@@ -16,6 +16,11 @@ function Home() {
               Go to Task 1
             </Link>
           </div>
+          <div className="home-cta">
+            <Link to="/Cal2" className="home-button">
+              Go to Task 2
+            </Link>
+          </div>
         </div>
       </section>
 
