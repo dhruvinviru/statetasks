@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 
-function Cal1() {
-
+function Cal2() {
     const [no1, setNo1] = useState(0);
     const [no2, setNo2] = useState(0);
     const [result, setResult] = useState(0);
 
-    return (
+  return (
+    <div>
         <main className="calculator-page">
             <section className="calculator-card">
-                <h1>Calculator Task1</h1>
+                <h1>Calculator Task2</h1>
                 <div className="field-row">
                     <label htmlFor="number1">Number 1</label>
                     <input
@@ -33,13 +33,23 @@ function Cal1() {
                 <button className="calculate-button" onClick={() => setResult(no1 + no2)}>
                     Sum
                 </button>
+                <button className="calculate-button" onClick={() => setResult(no1 * no2)}>
+                    Multiplication
+                </button>
+                <button className="calculate-button" onClick={() => setResult(no1 / no2)}>
+                    Division
+                </button>
+                <button className="calculate-button" onClick={() => setResult(no1 - no2)}>
+                    Subtraction
+                </button>
                 <div className="result-block">
                     <h2>Result</h2>
                     <p className="result-value">{result}</p>
                 </div>
             </section>
-        </main>
-    )
+        </main>        
+    </div>
+  )
 }
 
-export default Cal1
+export default Cal2
