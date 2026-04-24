@@ -30,9 +30,11 @@ function Cal2() {
                         onChange={(e) => setNo2(Number(e.target.value))}
                     />
                 </div>
-                <button className="calculate-button" onClick={() => { setResult(no1 + no2) }}>
-                    Sum
-                </button>
+                <div className="calculator-actions">
+                    <button className="calculate-button" onClick={() => { setResult(no1 + no2) }}>
+                        Sum
+                    </button>
+                </div>
                 <div className="result-block">
                     <h2>Result</h2>
                     <p className="result-value">{result}</p>
