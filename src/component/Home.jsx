@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function Home() {
+function Home({ page = [] }) {
   return (
     <main className="home-page">
       <section className="home-hero">
@@ -12,14 +12,13 @@ function Home() {
             calculator and see state updates in action.
           </p>
           <div className="home-cta">
-            <Link to="/Cal1" className="home-button">
-              Go to Task 1
-            </Link>
-          </div>
-          <div className="home-cta">
-            <Link to="/Cal2" className="home-button">
-              Go to Task 2
-            </Link>
+            {page
+              .filter((item) => item.name !== 'Home')
+              .map((item) => (
+                <Link key={item.path} to={item.path} className="home-button">
+                  Go to {item.name}
+                </Link>
+              ))}
           </div>
         </div>
       </section>
