@@ -8,7 +8,7 @@ function Home({ page = [] }) {
         <div className="home-content">
           <h1>Welcome to StateTasks</h1>
           <p>
-            My name is Dhruvin and this is a collection of React tasks demonstrating state management and routing. Explore the different pages to see various examples of React components in action!
+            My name is Dhruvin and this is a collection of React state management and routing tasks. Explore the different pages to see various examples of React components in action!
           </p>
           <div className="home-cta">
             {page
