@@ -1,0 +1,58 @@
+import React, { useState } from 'react'
+
+function Stopwatch() {
+    const [time, setTime] = useState(0);
+    let m = 0, ms = 0, h = 0, s = 0, cnt;
+    const start = () => {
+        cnt = setInterval(() => {
+            ms++;
+            if (ms === 99) {
+                s++;
+                ms = 1;
+            }
+            if (s === 60) {
+                m++;
+                s = 0;
+            }
+            if (m === 60) {
+                h++;
+                m = 0;
+            }
+            display();   
+        }, 10)
+    }
+    const stop = () => {
+        clearTimeout(cnt)
+        display()
+    }
+
+    const reset = () => {
+        m = 0
+        ms = 0
+        h = 0
+        s = 0
+        clearTimeout(cnt)
+        display()
+    }
+
+    const display = () => {
+        setTime(`${h}:${m}:${s}:${ms}`)
+    }
+    return (
+        <div>
+            <div>
+                <h1>Stopwatch</h1>
+            </div>
+            <div>
+                <button onClick={start}>Start</button>
+                <button onClick={stop}>Stop</button>
+                <button onClick={reset}>Reset</button>
+            </div>
+            <div>
+                <p id="disp">{time}</p>
+            </div>
+        </div>
+    )
+}
+
+export default Stopwatch

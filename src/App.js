@@ -7,6 +7,7 @@ import Cal1 from './component/Cal1';
 import Cal2 from './component/Cal2';
 import Cal3 from './component/Cal3';
 import Shape from './component/Shape';
+import Stopwatch from './component/Stopwatch';
 
 const menuItems = [
   { name: 'Home', path: '/' },
@@ -14,6 +15,7 @@ const menuItems = [
   { name: 'Cal2', path: '/Cal2' },
   { name: 'Cal3', path: '/Cal3' },
   { name: 'Shape', path: '/Shape' },
+  { name: 'Stopwatch', path: '/Stopwatch' },
 ];
 
 function App() {
@@ -26,6 +28,7 @@ function App() {
         <Route path="/Cal2" element={<Cal2 />} />
         <Route path="/Cal3" element={<Cal3 />} />
         <Route path="/Shape" element={<Shape />} />
+        <Route path="/Stopwatch" element={<Stopwatch />} />
       </Routes>
       <Analytics />
     </div>

@@ -425,3 +425,29 @@ input {
     align-items: flex-start;
   }
 }
+
+.square {
+  background-color: #4f46e5;
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+}
+.circle {
+  background-color: #4f46e5;
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  border-radius: 50%;
+}
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid #4f46e5;
+  margin: 20px auto;
+  border-bottom-color: #4f46e5;
+  border-bottom-width: 100px;
+  border-bottom-style: solid; 
+}
+
