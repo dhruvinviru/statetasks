@@ -8,8 +8,7 @@ function Home({ page = [] }) {
         <div className="home-content">
           <h1>Welcome to StateTasks</h1>
           <p>
-            Manage your React state tasks with ease. Navigate to the task page to explore the
-            calculator and see state updates in action.
+            My name is Dhruvin and this is a collection of React tasks demonstrating state management and routing. Explore the different pages to see various examples of React components in action!
           </p>
           <div className="home-cta">
             {page
@@ -18,7 +17,7 @@ function Home({ page = [] }) {
                 <Link key={item.path} to={item.path} className="home-button">
                   Go to {item.name}
                 </Link>
-              ))}
+              ))} 
           </div>
         </div>
       </section>

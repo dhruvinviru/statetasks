@@ -19,19 +19,18 @@ function Stopwatch() {
                 m = 0;
             }
             display();   
-        }, 10)
+        }, 1)
     }
     const stop = () => {
-        clearTimeout(cnt)
-        display()
+        clearInterval(cnt)
     }
 
     const reset = () => {
+        clearInterval(cnt)
         m = 0
         ms = 0
         h = 0
         s = 0
-        clearTimeout(cnt)
         display()
     }
 
