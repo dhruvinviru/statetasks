@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 function Stopwatch() {
     const [time, setTime] = useState(0);
-    let m = 0, ms = 0, h = 0, s = 0, cnt;
+    var m = 0, ms = 0, h = 0, s = 0, cnt;
     const start = () => {
         cnt = setInterval(() => {
             ms++;
@@ -38,7 +38,7 @@ function Stopwatch() {
         setTime(`${h}:${m}:${s}:${ms}`)
     }
     return (
-        <div>
+        <div className="stopwatch">
             <div>
                 <h1>Stopwatch</h1>
             </div>

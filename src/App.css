@@ -122,6 +122,7 @@ nav a:focus-visible {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -459,6 +460,7 @@ input {
   height: 100px;
   margin: 20px auto;
 }
+
 .circle {
   background-color: #4f46e5;
   width: 100px;
@@ -466,6 +468,7 @@ input {
   margin: 20px auto;
   border-radius: 50%;
 }
+
 .triangle {
   width: 0;
   height: 0;
@@ -475,6 +478,113 @@ input {
   margin: 20px auto;
   border-bottom-color: #4f46e5;
   border-bottom-width: 100px;
-  border-bottom-style: solid; 
+  border-bottom-style: solid;
 }
 
+/* Component styles: Stopwatch and Cal4 (scoped, non-invasive) */
+.stopwatch {
+  max-width: 520px;
+  margin: 1.5rem auto;
+  padding: 1.25rem;
+  background: var(--surface-strong);
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  text-align: center;
+}
+.stopwatch h1 {
+  margin: 0 0 0.75rem;
+  font-size: 1.5rem;
+}
+.stopwatch button {
+  margin: 0.25rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(180deg, var(--accent), var(--accent-bright));
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.stopwatch button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(7, 16, 33, 0.45);
+}
+#disp {
+  margin-top: 0.9rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.cal4 {
+  max-width: 380px;
+  margin: 1.25rem auto;
+  padding: 1rem;
+  background: rgba(12, 18, 34, 0.95);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(2,6,23,0.6);
+}
+
+/* Use grid for display + buttons. The second child div contains the display and the buttons */
+.cal4 > div:nth-of-type(2) {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.cal4 > div:nth-of-type(2) p:first-of-type {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 0.6rem 0.75rem;
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-align: right;
+  background: rgba(255,255,255,0.03);
+  border-radius: 8px;
+  color: var(--text);
+}
+
+.cal4 > div:nth-of-type(2) p:nth-of-type(2) {
+  grid-column: 1 / -1;
+  margin: 0 0 0.2rem 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-align: right;
+}
+
+.cal4 button {
+  padding: 0.65rem 0.6rem;
+  border-radius: 10px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.cal4 .num-btn {
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+}
+
+.cal4 .op-btn {
+  background: linear-gradient(180deg, var(--accent), var(--accent-bright));
+  color: #fff;
+}
+
+.cal4 .equals {
+  background: linear-gradient(180deg, var(--accent-bright), #2b0d75);
+  color: #fff;
+  grid-column: span 4;
+}
+
+.cal4 button:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(7, 16, 33, 0.45); }
+
+/* responsive */
+@media (max-width:420px){
+  .stopwatch, .cal4 { padding: 0.8rem; margin: 0.9rem; }
+  .cal4 > div:nth-of-type(2) { gap: 0.45rem; }
+  .cal4 > div:nth-of-type(2) p:first-of-type { font-size: 1.25rem; }
+  .cal4 .equals { grid-column: span 2; }
+}
