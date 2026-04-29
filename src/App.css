@@ -588,3 +588,18 @@ input {
   .cal4 > div:nth-of-type(2) p:first-of-type { font-size: 1.25rem; }
   .cal4 .equals { grid-column: span 2; }
 }
+
+.cal4 .display {
+  max-width: 230px;
+  width: 100%;
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 0.6rem 0.75rem;
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-align: right;
+  background: rgba(255,255,255,0.03);
+  border-radius: 8px;
+  color: var(--text);
+  overflow: hidden;
+}
