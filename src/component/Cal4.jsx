@@ -4,32 +4,27 @@ function Cal4() {
     const [result, setResult] = useState(0);
     const [operator, setOperator] = useState('');
     const [no1, setNo1] = useState('');
-    const [no2, setNo2] = useState(result);
 
     const oparation = (op) => {
         setNo1(result);
         setOperator(op);
         setResult(0)
+        if (op === '=') {
+            ans()
+        }
     }
 
     const ans = () => {
-
-
-        setNo2(result)
-
-        alert(no2)
+        const n2 = result;
         if (operator === '+') {
-            setResult(String(Number(no1) + Number(no2)))
+            setResult(String(Number(no1) + Number(n2)))
         } else if (operator === '-') {
-            setResult(String(Number(no1) - Number(no2)))
+            setResult(String(Number(no1) - Number(n2)))
         } else if (operator === '*') {
-            setResult(String(Number(no1) * Number(no2)))
+            setResult(String(Number(no1) * Number(n2)))
         } else if (operator === '/') {
-            setResult(String(Number(no1) / Number(no2)))
+            setResult(String(Number(no1) / Number(n2)))
         }
-        console.log(result)
-        console.log(no1)
-        console.log(no2)
         setOperator('=')
     }
     return (
@@ -62,12 +57,12 @@ function Cal4() {
                     }
                 }}>3</button>
                 <button className='num-btn op-btn' onClick={() => {
-                    if (result.length != 1) {
+                    if (result.length > 1) {
                         setResult(result.substring(0, result.length - 1))
                     } else {
                         setResult(0)
                     }
-                }}>{`<<`}</button>
+                }}>«</button>
 
                 <button className="num-btn" onClick={() => {
                     if (result === 0) {
@@ -118,9 +113,8 @@ function Cal4() {
                 <button className="num-btn" onClick={() => { setResult(0) }}>C</button>
                 <button className="num-btn" onClick={() => { setResult(result + '0') }}>0</button>
                 <button className="num-btn" onClick={() => {
-                    if (result.includes('.')) {
+                    if (!result.includes('.')) {
                         setResult(result + '.')
-
                     }
                 }}>.</button>
                 <button className="num-btn op-btn" onClick={() => { oparation('-') }}>-</button>
