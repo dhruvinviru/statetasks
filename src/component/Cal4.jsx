@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 function Cal4() {
-    const [result, setResult] = useState(0);
+    const [result, setResult] = useState('0');
     const [operator, setOperator] = useState('');
     const [no1, setNo1] = useState('');
 
@@ -110,9 +110,15 @@ function Cal4() {
                 }}>9</button>
                 <button className="num-btn op-btn" onClick={() => { oparation('*') }}>*</button>
 
-                <button className="num-btn" onClick={() => { setResult(0) }}>C</button>
-                <button className="num-btn" onClick={() => { setResult(result + '0') }}>0</button>
-                <button className="num-btn" onClick={() => {
+                <button className="num-btn sp-btn" onClick={() => { setResult(0) }}>C</button>
+                <button className="num-btn" onClick={() => { 
+                    if (result === 0) {
+                        setResult('0')
+                    } else {
+                        setResult(result + '0')
+                    }
+                 }}>0</button>
+                <button className="num-btn sp-btn" onClick={() => {
                     if (!result.includes('.')) {
                         setResult(result + '.')
                     }
