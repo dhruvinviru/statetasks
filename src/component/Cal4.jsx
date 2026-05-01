@@ -36,21 +36,21 @@ function Cal4() {
                 <p className='display'>{result}</p>
                 <p>{operator}</p>
                 <button className="num-btn" onClick={() => {
-                    if (result === 0) {
+                    if (result === '0') {
                         setResult('1')
                     } else {
                         setResult(result + '1')
                     }
                 }}>1</button>
                 <button className="num-btn" onClick={() => {
-                    if (result === 0) {
+                    if (result === '0') {
                         setResult('2')
                     } else {
                         setResult(result + '2')
                     }
                 }}>2</button>
                 <button className="num-btn" onClick={() => {
-                    if (result === 0) {
+                    if (result === '0') {
                         setResult('3')
                     } else {
                         setResult(result + '3')
@@ -60,26 +60,26 @@ function Cal4() {
                     if (result.length > 1) {
                         setResult(result.substring(0, result.length - 1))
                     } else {
-                        setResult(0)
+                        setResult('0')
                     }
                 }}>«</button>
 
                 <button className="num-btn" onClick={() => {
-                    if (result === 0) {
+                    if (result === '0') {
                         setResult('4')
                     } else {
                         setResult(result + '4')
                     }
                 }}>4</button>
                 <button className="num-btn" onClick={() => {
-                    if (result === 0) {
+                    if (result === '0') {
                         setResult('5')
                     } else {
                         setResult(result + '5')
                     }
                 }}>5</button>
                 <button className="num-btn" onClick={() => {
-                    if (result === 0) {
+                    if (result === '0') {
                         setResult('6')
                     } else {
                         setResult(result + '6')
@@ -88,21 +88,21 @@ function Cal4() {
                 <button className="num-btn op-btn" onClick={() => { oparation('/') }}>/</button>
 
                 <button className="num-btn" onClick={() => {
-                    if (result === 0) {
+                    if (result === '0') {
                         setResult('7')
                     } else {
                         setResult(result + '7')
                     }
                 }}>7</button>
                 <button className="num-btn" onClick={() => {
-                    if (result === 0) {
+                    if (result === '0') {
                         setResult('8')
                     } else {
                         setResult(result + '8')
                     }
                 }}>8</button>
                 <button className="num-btn" onClick={() => {
-                    if (result === 0) {
+                    if (result === '0') {
                         setResult('9')
                     } else {
                         setResult(result + '9')
@@ -110,9 +110,9 @@ function Cal4() {
                 }}>9</button>
                 <button className="num-btn op-btn" onClick={() => { oparation('*') }}>*</button>
 
-                <button className="num-btn sp-btn" onClick={() => { setResult(0) }}>C</button>
+                <button className="num-btn sp-btn" onClick={() => { setResult('0') }}>C</button>
                 <button className="num-btn" onClick={() => { 
-                    if (result === 0) {
+                    if (result === '0') {
                         setResult('0')
                     } else {
                         setResult(result + '0')

@@ -259,6 +259,58 @@ input {
   gap: 1rem;
 }
 
+.tick-tack {
+  width: min(520px, 100%);
+  margin: 0 auto;
+  padding: 2rem;
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.75rem;
+  box-shadow: 0 25px 70px rgba(7, 16, 33, 0.35);
+  text-align: center;
+}
+
+.tick-tack h1 {
+  margin: 0 0 1.5rem;
+  font-size: clamp(2rem, 2.5vw, 2.4rem);
+  letter-spacing: 0.03em;
+  color: #ffffff;
+}
+
+.tick-tack > div:last-child {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.tick-tack .btn {
+  min-height: 4.5rem;
+  border: none;
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  font-size: 1.35rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tick-tack .btn:hover {
+  background: rgba(124, 58, 237, 0.16);
+  box-shadow: 0 15px 30px rgba(124, 58, 237, 0.16);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 560px) {
+  .tick-tack {
+    padding: 1.5rem;
+  }
+
+  .tick-tack > div:last-child {
+    gap: 0.65rem;
+  }
+}
+
 .result-block h2 {
   margin: 0;
   font-size: 1rem;
