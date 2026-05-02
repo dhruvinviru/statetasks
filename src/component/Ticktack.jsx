@@ -71,9 +71,9 @@ function Ticktack() {
           })}
         </div>
       </div>
-      <div>
-        <p>{win}</p>
-        <button onClick={restart}>Restart</button>
+      <div className='tick-tack-footer'>
+        <p className='winner'>{win}</p>
+        <button onClick={restart} className='restart'>Restart</button>
       </div>
     </>
   )
