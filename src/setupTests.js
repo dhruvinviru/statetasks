@@ -9,3 +9,8 @@ jest.mock('@vercel/analytics/react', () => ({
   Analytics: () => null,
   track: jest.fn(),
 }), { virtual: true });
+
+// Mock Vercel Speed Insights
+jest.mock('@vercel/speed-insights/react', () => ({
+  SpeedInsights: () => null,
+}), { virtual: true });
