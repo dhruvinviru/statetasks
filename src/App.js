@@ -1,6 +1,7 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import Header from './component/Header';
 import Home from './component/Home';
 import Cal1 from './component/Cal1';
@@ -40,6 +41,7 @@ function App() {
         <Route path="/Puzzel1" element={<Puzzel1 />} />
       </Routes>
       <Analytics />
+      <SpeedInsights />
     </div>
   );
 }
