@@ -10,6 +10,7 @@ import Cal4 from './component/Cal4';
 import Shape from './component/Shape';
 import Stopwatch from './component/Stopwatch';
 import Ticktack from './component/Ticktack';
+import Puzzel1 from './component/Puzzel1';
 
 const menuItems = [
   { name: 'Home', path: '/' },
@@ -20,6 +21,7 @@ const menuItems = [
   { name: 'Shape', path: '/Shape' },
   { name: 'Stopwatch', path: '/Stopwatch' },
   { name: 'Ticktack', path: '/Ticktack' },
+  { name: 'Puzzel 1',path:'/Puzzel1'}
 ];
 
 function App() {
@@ -35,6 +37,7 @@ function App() {
         <Route path="/Shape" element={<Shape />} />
         <Route path="/Stopwatch" element={<Stopwatch />} />
         <Route path="/Ticktack" element={<Ticktack />} />
+        <Route path="/Puzzel1" element={<Puzzel1 />} />
       </Routes>
       <Analytics />
     </div>
