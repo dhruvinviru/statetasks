@@ -336,6 +336,15 @@ input {
   transform: translateY(-1px);
 }
 
+.tick-tack-footer .restart {
+  min-width: 180px;
+  letter-spacing: 0.01em;
+}
+
+.tick-tack .btn {
+  width: 100%;
+}
+
 @media (max-width: 560px) {
   .tick-tack {
     padding: 1.5rem;

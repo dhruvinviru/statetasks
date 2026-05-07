@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 
+let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+let winCondition = [1, 2, 3, 4, 5, 6, 7, 8, '']
+
 function NewGame() {
-    let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8];
     var finalarr = new Array();
     var ranarr = new Array();
 
@@ -11,7 +13,7 @@ function NewGame() {
             ranarr[i] = Math.floor(Math.random() * 10)
         )
     })
-    // Add Random Value in FinalArray with Dublicate Value Sorting 
+    // Add Random Value in FinalArray with Duplicate Value Sorting 
     ranarr.map((val, i) => {
         return (
             ranarr[i] !== 9 && ranarr[i] !== undefined && !finalarr.includes(ranarr[i]) ? finalarr.push(ranarr[i]) : null
@@ -33,43 +35,55 @@ function NewGame() {
     return finalarr
 }
 
-function Puzzel1() {
-    var finalarr = NewGame()
-    const [btn, setBtn] = useState(NewGame)
+function Puzzle1() {
+    const [btn, setBtn] = useState(NewGame())
 
     const newgame = () => {
-        setBtn(finalarr)
+        setBtn(NewGame())
     }
 
     const click = (index) => {
-        let a = '';
-        if(btn[index - 1] === ''){
-            console.log(btn[index])
-            console.log(btn[index - 1]);
-            console.log(index);
-            console.log(a);                        
+        let swaper = [...btn]
+        if (!win()) {
+            if (btn[index] !== '' && index % 3 !== 0 && btn[index - 1] === '') {
+                [swaper[index], swaper[index - 1]] = [swaper[index - 1], swaper[index]]
+                setBtn(swaper)
+            }
+            if (btn[index] !== '' && index % 3 !== 2 && btn[index + 1] === '') {
+                [swaper[index], swaper[index + 1]] = [swaper[index + 1], swaper[index]]
+                setBtn(swaper)
+            }
+            if (btn[index] !== '' && index >= 3 && btn[index - 3] === '') {
+                [swaper[index], swaper[index - 3]] = [swaper[index - 3], swaper[index]]
+                setBtn(swaper)
+            }
+            if (btn[index] !== '' && index < 6 && btn[index + 3] === '') {
+                [swaper[index], swaper[index + 3]] = [swaper[index + 3], swaper[index]]
+                setBtn(swaper)
+            }
             console.log(btn);
 
-            a = btn[index]
-            btn[index] = btn[index - 1]
-            btn[index - 1] = a
-
-            setBtn(btn)
-
-            console.log(btn[index])
-            console.log(btn[index - 1]);
-            console.log(index);
-            console.log(a);                        
-            console.log(btn);
+        } else {
+            const alertgame = window.confirm('Your Win!\nFor Start New Game Click Ok')
+            if(alertgame){
+                newgame()
+            }
         }
-        
     }
 
+    const win = () => {
+        if (btn === winCondition) {
+            return true
+        }
+    }
+    const directwin = () => {
+        setBtn(winCondition)
+    }
     return (
         <>
             <div className='tick-tack'>
                 <div>
-                    <h1>Number Puzzel</h1>
+                    <h1>Number Puzzle</h1>
                 </div>
                 <div>
                     {btn.map((val, i) => (
@@ -86,9 +100,10 @@ function Puzzel1() {
             </div>
             <div className='tick-tack-footer'>
                 <button onClick={newgame} className='restart'>New Game</button>
+                <button onClick={directwin} className='restart'>Click to Win</button>
             </div>
         </>
     )
 }
 
-export default Puzzel1
+export default Puzzle1

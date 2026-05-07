@@ -31,28 +31,20 @@ function Ticktack() {
     !btn.includes(null) ? setGover(true) : setGover(false)
 
     if (btn[0] !== null && btn[0] === btn[1] && btn[1] === btn[2]) {
-      // setWin(turn === 'X' ? 'O' : 'X')
       return true;
     } else if (btn[3] !== null && btn[3] === btn[4] && btn[4] === btn[5]) {
-      // setWin(turn === 'X' ? 'O' : 'X')
       return true;
     } else if (btn[6] !== null && btn[6] === btn[7] && btn[7] === btn[8]) {
-      // setWin(turn === 'X' ? 'O' : 'X')
       return true;
     } else if (btn[0] !== null && btn[0] === btn[3] && btn[3] === btn[6]) {
-      // setWin(turn === 'X' ? 'O' : 'X')
       return true;
     } else if (btn[1] !== null && btn[1] === btn[4] && btn[4] === btn[7]) {
-      // setWin(turn === 'X' ? 'O' : 'X')
       return true;
     } else if (btn[2] !== null && btn[2] === btn[5] && btn[5] === btn[8]) {
-      // setWin(turn === 'X' ? 'O' : 'X')
       return true;
     } else if (btn[0] !== null && btn[0] === btn[4] && btn[4] === btn[8]) {
-      // setWin(turn === 'X' ? 'O' : 'X')
       return true;
     } else if (btn[2] !== null && btn[2] === btn[4] && btn[4] === btn[6]) {
-      // setWin(turn === 'X' ? 'O' : 'X')
       return true;
     }
   }
