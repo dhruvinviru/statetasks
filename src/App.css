@@ -101,6 +101,92 @@ nav a:focus-visible {
   height: 2.4rem;
 }
 
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 3px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.sidebar {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(20px);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 1000;
+  padding: 2rem 1.5rem;
+}
+
+.sidebar.open {
+  display: block;
+}
+
+.sidebar nav ul {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.sidebar nav a {
+  width: 100%;
+  text-align: left;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a:focus-visible {
+  background: rgba(124, 58, 237, 0.18);
+  transform: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .header-brand {
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .header-brand {
+    justify-content: space-between;
+  }
+}
+
 .brand-title {
   color: var(--text);
   font-size: 1.1rem;
