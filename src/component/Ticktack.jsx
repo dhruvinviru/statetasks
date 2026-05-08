@@ -4,78 +4,88 @@ function Ticktack() {
   const [btn, setBtn] = useState(Array(9).fill(null))
   const [turn, setTurn] = useState('X')
   const [win, setWin] = useState(null)
-  const [gover, setGover] = useState(null)
 
   const restart = () => {
     setBtn(Array(9).fill(null))
     setTurn('X')
     setWin(null)
-    setGover(false)
+    console.log('Game was Restarted')
   }
-
-  const click = (index) => {
-    if (gover !== true || checkwin(index) !== true) {
-      const temp = [...btn]
+   const click = (index) => {
+    if (checkwin() !== true) {
+      const btn1 = [...btn]
       if (btn[index] === null) {
-        temp[index] = turn;
-        setTurn(turn === 'X' ? 'O' : 'X')
+        btn1[index] = turn;
       }
-      setBtn(temp)
+      setBtn(btn1)
+      setTurn(turn === 'X' ? 'O' : 'X')
+      checkwin()
     } else {
       setWin(turn === 'X' ? 'O' : 'X')
-      setGover(true)
+      btn.map((val, i) => {
+        return (
+          <button className='btn' key={i} onClick={() => { click(i) }} disabled>{val}</button>
+        )
+      })
     }
   }
-
-  const checkwin = (index) => {
-    !btn.includes(null) ? setGover(true) : setGover(false)
-
+  const checkwin = () => {
     if (btn[0] !== null && btn[0] === btn[1] && btn[1] === btn[2]) {
       return true;
-    } else if (btn[3] !== null && btn[3] === btn[4] && btn[4] === btn[5]) {
-      return true;
-    } else if (btn[6] !== null && btn[6] === btn[7] && btn[7] === btn[8]) {
-      return true;
-    } else if (btn[0] !== null && btn[0] === btn[3] && btn[3] === btn[6]) {
-      return true;
-    } else if (btn[1] !== null && btn[1] === btn[4] && btn[4] === btn[7]) {
-      return true;
-    } else if (btn[2] !== null && btn[2] === btn[5] && btn[5] === btn[8]) {
-      return true;
-    } else if (btn[0] !== null && btn[0] === btn[4] && btn[4] === btn[8]) {
-      return true;
-    } else if (btn[2] !== null && btn[2] === btn[4] && btn[4] === btn[6]) {
+    }
+    if (btn[3] !== null && btn[3] === btn[4] && btn[4] === btn[5]) {
       return true;
     }
-  }
+    if (btn[6] !== null && btn[6] === btn[7] && btn[7] === btn[8]) {
+      return true;
+    }
+    if (btn[0] !== null && btn[0] === btn[3] && btn[3] === btn[6]) {
+      return true;
+    }
+    if (btn[1] !== null && btn[1] === btn[4] && btn[4] === btn[7]) {
+      return true;
+    }
+    if (btn[2] !== null && btn[2] === btn[5] && btn[5] === btn[8]) {
+      return true;
+    }
+    if (btn[0] !== null && btn[0] === btn[4] && btn[4] === btn[8]) {
+      return true;
+    }
+    if (btn[2] !== null && btn[2] === btn[4] && btn[4] === btn[6]) {
+      return true;
+    }}
 
-  return (
-    <>
+     return (
+        <>
       <div className='tick-tack'>
         <div>
           <h1>Ticktack</h1>
         </div>
         <div>
-          {btn.map((val, i) => (
-            <button
-              className='btn'
-              id='buttons'
-              key={i}
-              onClick={() => { click(i) }}
-            >
-              {val}
-            </button>
-          ))}
+          {btn.map((val, i) => {
+            return (
+              <button
+                className='btn'
+                key={i}
+                onClick={() => { click(i) }}
+                disabled={Boolean(win) || val !== null}
+              >
+                {val}
+              </button>
+            )
+          })}
         </div>
       </div>
-      <div className='tick-tack-footer'>
-        <p className='winner'>
-          {win ? `Winner: ${win}` : gover ? 'Game Over' : `Next: ${turn}`}
+      <div>
+        <p className={`ticktack-status ${win ? 'winner' : 'next-turn'}`}>
+          {win ? `Winner: ${win}` : `Next turn: ${turn}`}
         </p>
-        <button onClick={restart} className='restart'>Restart</button>
+          <button className="ticktack-restart" onClick={restart}>Restart</button>
+
       </div>
-    </>
+       </>
   )
 }
+
 
 export default Ticktack
