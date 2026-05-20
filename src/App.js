@@ -12,6 +12,7 @@ import Shape from './component/Shape';
 import Stopwatch from './component/Stopwatch';
 import Ticktack from './component/Ticktack';
 import Puzzle1 from './component/Puzzle1';
+import Todolist from './component/Todolist';
 
 const menuItems = [
   { name: 'Home', path: '/' },
@@ -22,7 +23,8 @@ const menuItems = [
   { name: 'Shape', path: '/Shape' },
   { name: 'Stopwatch', path: '/Stopwatch' },
   { name: 'Ticktack', path: '/Ticktack' },
-  { name: 'Puzzle 1',path:'/Puzzle1'}
+  { name: 'Puzzle 1',path:'/Puzzle1'}, 
+  { name: 'Todolist',path:'/Todolist'}
 ];
 
 function App() {
@@ -39,6 +41,7 @@ function App() {
         <Route path="/Stopwatch" element={<Stopwatch />} />
         <Route path="/Ticktack" element={<Ticktack />} />
         <Route path="/Puzzle1" element={<Puzzle1 />} />
+        <Route path="/Todolist" element={<Todolist />} />
       </Routes>
       <Analytics />
       <SpeedInsights />
